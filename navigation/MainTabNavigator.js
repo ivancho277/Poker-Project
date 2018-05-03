@@ -54,5 +54,14 @@ export default TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
+    tabBarOptions: {
+  activeTintColor: '#e91e63',
+  labelStyle: {
+    fontSize: 12,
+  },
+  style: {
+    backgroundColor: 'blue',
+  },
+}
   }
 );

@@ -7,15 +7,18 @@ import {
   Text,
   TouchableOpacity,
   View,
+  TouchableHighlight,
+  Alert
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
 import { MonoText } from '../components/StyledText';
+
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
 
   render() {
     return (
@@ -39,6 +42,18 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.getStartedText}>
               POKERTRACKER v1.0
             </Text>
+            <View>
+              <TouchableHighlight onPress={() => {Alert.alert('Alert Title',
+  'My Alert Msg',
+  [
+    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+    {text: 'OK', onPress: () => console.log('OK Pressed')},
+  ],
+  { cancelable: false });}} style={[styles.button]}>
+                <Text>Start New Game</Text>
+              </TouchableHighlight>
+            </View>
           </View>
 
        
@@ -82,6 +97,11 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  button: {
+    // alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
