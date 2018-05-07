@@ -12,6 +12,9 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
+import MainTabNavigator from '../navigation/MainTabNavigator';
+import GamesScreen from './GameScreen';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 
 
 export default class HomeScreen extends React.Component {
@@ -43,12 +46,12 @@ export default class HomeScreen extends React.Component {
               POKERTRACKER v1.0
             </Text>
             <View>
-              <TouchableHighlight onPress={() => {Alert.alert('Alert Title',
-  'My Alert Msg',
+              <TouchableHighlight onPress={() => {Alert.alert('Begin new Game',
+  'Are you sure you want to start a new game?',
   [
     {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
     {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
+    {text: 'OK', onPress: () => this.props.navigation.navigate('Game')},
   ],
   { cancelable: false });}} style={[styles.button]}>
                 <Text>Start New Game</Text>
@@ -122,8 +125,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 150,
+    height: 70,
     resizeMode: 'contain',
     marginTop: 3,
     marginLeft: -10,

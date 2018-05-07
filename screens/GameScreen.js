@@ -8,9 +8,13 @@ export default class GamesScreen extends React.Component {
   };
 constructor(props) {
    super(props)
-   this.state = { check: 0, bet: 0, call: 0, raise: 0, reRaise: 0, fold: 0 }
+   this.state = { check: 0, bet: 0, call: 0, raise: 0, reRaise: 0, fold: 0,  handNumber : 0, isHandinPlay : false }
+   
  }
-
+//think about wrapping in while loop, while(handInPlay == true || if False clear and start new hand)
+//Once new hand is pressed, the data should be sent to DataOrganizer class to be prepared for storage.
+//Still need to add a Big Blind button.
+//What data structor to use to save each game? 
  onPress(action){
    if(action == 'check'){
      this.setState({check: this.state.check+1})

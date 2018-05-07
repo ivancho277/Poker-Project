@@ -14,7 +14,7 @@ export default TabNavigator(
     Home: {
       screen: HomeScreen,
     },
-    Links: {
+    Game: {
       screen: GameScreen,
     },
     SavedGame: {
@@ -33,7 +33,7 @@ export default TabNavigator(
                 ? `ios-information-circle${focused ? '' : '-outline'}`
                 : 'md-information-circle';
             break;
-          case 'Links':
+          case 'Game':
             iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
             break;
           case 'SavedGame':
