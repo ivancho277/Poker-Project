@@ -15,6 +15,10 @@ constructor(props) {
 //Once new hand is pressed, the data should be sent to DataOrganizer class to be prepared for storage.
 //Still need to add a Big Blind button.
 //What data structor to use to save each game? 
+//function buttonPresses() {
+  
+  //while(isHandinPlay)
+//{
  onPress(action){
    if(action == 'check'){
      this.setState({check: this.state.check+1})
@@ -34,13 +38,23 @@ constructor(props) {
    else if(action == 'fold'){
      this.setState({fold: this.state.fold+1})
    }
-   
- }
+   else if(action == 'New Hand'){
+     this.setState({handNumber: this.state.handNumber+1})
+   }
+  }
+  //}
+ //}
  render(){
    return (
        <View  style={{justifyContent: 'center', flex: 1,}}>
          <View style={{flex:1}}>
             <Text> Track your Game </Text>
+         </View>
+         <View style={{ flex:0}}>
+            <TouchableHighlight onPress={() => this.onPress('New Hand')} style={[styles.button]}>
+            <Text> New Hand </Text>
+            </TouchableHighlight>
+            <Text>   Hand #{this.state.handNumber}  </Text>
          </View>
          <View style={{flex:2, backgroundColor:'yellow'}}>
            <View style={[styles.row1, styles.rows]}>
