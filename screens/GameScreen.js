@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text, TouchableHighlight, } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import DataOganizer from '../screens/DataOrganizer';
 
 export default class GamesScreen extends React.Component {
   static navigationOptions = {
@@ -8,7 +9,7 @@ export default class GamesScreen extends React.Component {
   };
 constructor(props) {
    super(props)
-   this.state = { check: 0, bet: 0, call: 0, raise: 0, reRaise: 0, fold: 0,  handNumber : 0, isHandinPlay : false }
+   this.state = { check: 0, bet: 0, call: 0, raise: 0, reRaise: 0, fold: 0,  handNumber : 1, isHandinPlay : true }
    
  }
 //think about wrapping in while loop, while(handInPlay == true || if False clear and start new hand)
@@ -39,8 +40,9 @@ constructor(props) {
      this.setState({fold: this.state.fold+1})
    }
    else if(action == 'New Hand'){
-     this.setState({handNumber: this.state.handNumber+1})
-   }
+     this.setState({handNumber: this.state.handNumber+1, /*DataOganizer:create(this.state.check),*/ check: this.state.check=0, /*DataOganizer:Component(this.state.bet),*/ bet: this.state.bet=0, /*DataOganizer:Component(this.state.call),*/
+    call: this.state.call=0, /*DataOganizer:Comment(this.state.raise),*/  raise: this.state.raise=0, /*reRaise: DataOganizer(this.state.reRaise),*/ reRaise: this.state.reRaise=0, /*fold: DataOganizer(this.state.fold), */fold: this.state.fold=0})
+   } //Clears data after each hand, needs to also be sent to DataOganizer, so may need to change this.
   }
   //}
  //}
